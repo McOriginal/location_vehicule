@@ -39,7 +39,12 @@ class _VehicleDetailsState extends State<VehicleDetails> {
       backgroundColor: AppColors.blackPrimary,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.only(
+            top: 8,
+            left: 8,
+            right: 8,
+            bottom: responsive.hp(0.1),
+          ),
           child: Column(
             children: [
               SizedBox(
@@ -165,286 +170,284 @@ class _VehicleDetailsState extends State<VehicleDetails> {
                   ],
                 ),
               ),
-              Container(
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            vehicle.name,
-                            style: AppTextStyles.title,
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.favorite_border,
-                            size: 35,
-                            color: AppColors.primary,
-                          ),
-                        )
-                      ],
-                    ),
-                    Text(
-                      "Détails de Véhicule",
-                      style: AppTextStyles.title,
-                    ),
-                    Row(children: [
+              Column(
+                children: [
+                  Row(
+                    children: [
                       Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Icon(
-                                    Icons.card_giftcard,
-                                    size: 22,
-                                    color: AppColors.whitePrimary,
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    'Type: ${vehicle.type}',
-                                    style: AppTextStyles.content,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 6),
-                            Row(
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Icon(
-                                    Icons.color_lens,
-                                    size: 22,
-                                    color: AppColors.whitePrimary,
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    'Couleur: ${vehicle.color}',
-                                    style: AppTextStyles.content,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 6),
-                          ],
+                        child: Text(
+                          vehicle.name,
+                          style: AppTextStyles.title,
                         ),
                       ),
-                      Expanded(
-                        child: Column(
-                          children: [
-                            Row(
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Icon(
-                                    Icons.attach_money,
-                                    size: 22,
-                                    color: AppColors.whitePrimary,
-                                  ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.favorite_border,
+                          size: 35,
+                          color: AppColors.primary,
+                        ),
+                      )
+                    ],
+                  ),
+                  Text(
+                    "Détails de Véhicule",
+                    style: AppTextStyles.title,
+                  ),
+                  Row(children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.card_giftcard,
+                                  size: 22,
+                                  color: AppColors.whitePrimary,
                                 ),
-                                Expanded(
-                                  child: Text(
-                                    'Prix: ${vehicle.price}',
-                                    style: AppTextStyles.content,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Icon(
-                                    Icons.verified,
-                                    size: 22,
-                                    color: AppColors.whitePrimary,
-                                  ),
-                                ),
-                                Text(
-                                  vehicle.isAvailable
-                                      ? 'Disponible'
-                                      : 'Indisponible',
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'Type: ${vehicle.type}',
                                   style: AppTextStyles.content,
                                 ),
-                              ],
-                            ),
-                          ],
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 6),
+                          Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.color_lens,
+                                  size: 22,
+                                  color: AppColors.whitePrimary,
+                                ),
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'Couleur: ${vehicle.color}',
+                                  style: AppTextStyles.content,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 6),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.attach_money,
+                                  size: 22,
+                                  color: AppColors.whitePrimary,
+                                ),
+                              ),
+                              Expanded(
+                                child: Text(
+                                  'Prix: ${vehicle.price}',
+                                  style: AppTextStyles.content,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.verified,
+                                  size: 22,
+                                  color: AppColors.whitePrimary,
+                                ),
+                              ),
+                              Text(
+                                vehicle.isAvailable
+                                    ? 'Disponible'
+                                    : 'Indisponible',
+                                style: AppTextStyles.content,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(
+                          Icons.category,
+                          size: 22,
+                          color: AppColors.whitePrimary,
                         ),
                       ),
-                    ]),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.category,
-                            size: 22,
-                            color: AppColors.whitePrimary,
+                      Expanded(
+                        child: Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
+                          children: vehicle.categories.map((cat) {
+                            return Chip(
+                              label: Text(
+                                cat.toUpperCase(),
+                                style: AppTextStyles.title.copyWith(
+                                  color: AppColors.whitePrimary,
+                                  fontSize: responsive.sp(15),
+                                ),
+                              ),
+                              backgroundColor: AppColors.secondary,
+                              shape: const StadiumBorder(
+                                side: BorderSide(
+                                  color: AppColors.whitePrimary,
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    "Prix",
+                    style: AppTextStyles.title,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 3,
+                            horizontal: 4,
+                          ),
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                width: 1, color: AppColors.whitePrimary),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Heure',
+                                style: AppTextStyles.title
+                                    .copyWith(fontSize: responsive.sp(12)),
+                              ),
+                              Text(
+                                '${vehicle.price.toString()} f',
+                                style: AppTextStyles.content.copyWith(
+                                  fontSize: responsive.sp(11),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        Expanded(
-                          child: Wrap(
-                            spacing: 8,
-                            runSpacing: 8,
-                            children: vehicle.categories.map((cat) {
-                              return Chip(
-                                label: Text(
-                                  cat.toUpperCase(),
-                                  style: AppTextStyles.title.copyWith(
-                                    color: AppColors.whitePrimary,
-                                    fontSize: responsive.sp(15),
-                                  ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 3,
+                            horizontal: 4,
+                          ),
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                width: 1, color: AppColors.whitePrimary),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Jour',
+                                style: AppTextStyles.title
+                                    .copyWith(fontSize: responsive.sp(12)),
+                              ),
+                              Text(
+                                '${vehicle.price * 24} f',
+                                style: AppTextStyles.content.copyWith(
+                                  fontSize: responsive.sp(11),
                                 ),
-                                backgroundColor: AppColors.secondary,
-                                shape: const StadiumBorder(
-                                  side: BorderSide(
-                                    color: AppColors.whitePrimary,
-                                  ),
-                                ),
-                              );
-                            }).toList(),
+                              ),
+                            ],
                           ),
                         ),
-                      ],
-                    ),
-                    Text(
-                      "Prix",
-                      style: AppTextStyles.title,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 3,
-                              horizontal: 4,
-                            ),
-                            margin: const EdgeInsets.symmetric(horizontal: 4),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 1, color: AppColors.whitePrimary),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Heure',
-                                  style: AppTextStyles.title
-                                      .copyWith(fontSize: responsive.sp(12)),
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 3,
+                            horizontal: 4,
+                          ),
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                width: 1, color: AppColors.whitePrimary),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Semaine',
+                                style: AppTextStyles.title
+                                    .copyWith(fontSize: responsive.sp(12)),
+                              ),
+                              Text(
+                                '${vehicle.price * 45} f',
+                                style: AppTextStyles.content.copyWith(
+                                  fontSize: responsive.sp(11),
                                 ),
-                                Text(
-                                  '${vehicle.price.toString()} f',
-                                  style: AppTextStyles.content.copyWith(
-                                    fontSize: responsive.sp(11),
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
-                        Expanded(
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 3,
-                              horizontal: 4,
-                            ),
-                            margin: const EdgeInsets.symmetric(horizontal: 4),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 1, color: AppColors.whitePrimary),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Jour',
-                                  style: AppTextStyles.title
-                                      .copyWith(fontSize: responsive.sp(12)),
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 3,
+                            horizontal: 4,
+                          ),
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                width: 1, color: AppColors.whitePrimary),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Mois',
+                                style: AppTextStyles.title
+                                    .copyWith(fontSize: responsive.sp(12)),
+                              ),
+                              Text(
+                                '${vehicle.price * 60} f',
+                                style: AppTextStyles.content.copyWith(
+                                  fontSize: responsive.sp(11),
                                 ),
-                                Text(
-                                  '${vehicle.price * 24} f',
-                                  style: AppTextStyles.content.copyWith(
-                                    fontSize: responsive.sp(11),
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
-                        Expanded(
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 3,
-                              horizontal: 4,
-                            ),
-                            margin: const EdgeInsets.symmetric(horizontal: 4),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 1, color: AppColors.whitePrimary),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Semaine',
-                                  style: AppTextStyles.title
-                                      .copyWith(fontSize: responsive.sp(12)),
-                                ),
-                                Text(
-                                  '${vehicle.price * 45} f',
-                                  style: AppTextStyles.content.copyWith(
-                                    fontSize: responsive.sp(11),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 3,
-                              horizontal: 4,
-                            ),
-                            margin: const EdgeInsets.symmetric(horizontal: 4),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 1, color: AppColors.whitePrimary),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Mois',
-                                  style: AppTextStyles.title
-                                      .copyWith(fontSize: responsive.sp(12)),
-                                ),
-                                Text(
-                                  '${vehicle.price * 60} f',
-                                  style: AppTextStyles.content.copyWith(
-                                    fontSize: responsive.sp(11),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
               SizedBox(
                 height: responsive.hp(0.05),
@@ -520,6 +523,80 @@ class _VehicleDetailsState extends State<VehicleDetails> {
                     ],
                   ),
                 ],
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.phone,
+                      size: 22,
+                      color: AppColors.whitePrimary,
+                    ),
+                    style: IconButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      padding: const EdgeInsets.all(20),
+                    ),
+                  ),
+                  SizedBox(width: responsive.wp(0.1)),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.tiktok_outlined,
+                      size: 22,
+                      color: AppColors.whitePrimary,
+                    ),
+                    style: IconButton.styleFrom(
+                      backgroundColor: AppColors.blackSecondary,
+                      padding: const EdgeInsets.all(20),
+                    ),
+                  ),
+                  SizedBox(width: responsive.wp(0.1)),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.phone_callback,
+                      size: 22,
+                      color: AppColors.whitePrimary,
+                    ),
+                    style: IconButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      padding: const EdgeInsets.all(20),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.transparent,
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.primary,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          width: responsive.wp(0.7),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          margin: EdgeInsets.zero,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Reservez Maintenant',
+                style: AppTextStyles.title.copyWith(
+                  fontSize: responsive.sp(16),
+                  color: AppColors.whitePrimary,
+                ),
+              ),
+              const SizedBox(width: 10),
+              const Icon(
+                Icons.event_available,
+                size: 35,
+                color: AppColors.whitePrimary,
               )
             ],
           ),
