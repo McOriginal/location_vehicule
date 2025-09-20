@@ -321,9 +321,12 @@ class _VehicleDetailsState extends State<VehicleDetails> {
                       ),
                     ],
                   ),
-                  Text(
-                    "Prix",
-                    style: AppTextStyles.title,
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 20),
+                    child: Text(
+                      "Prix",
+                      style: AppTextStyles.title,
+                    ),
                   ),
                   Row(
                     children: [
