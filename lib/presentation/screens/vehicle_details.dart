@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:location_vehicule/presentation/animations/page_view_animation.dart';
+import 'package:location_vehicule/presentation/screens/client/rental_form.dart';
 import 'package:location_vehicule/presentation/widgets/app_colors.dart';
 import 'package:location_vehicule/presentation/widgets/app_responsive.dart';
 import 'package:location_vehicule/data/models/vehicle_model.dart';
@@ -255,7 +257,7 @@ class _VehicleDetailsState extends State<VehicleDetails> {
                               ),
                               Expanded(
                                 child: Text(
-                                  'Prix: ${vehicle.price}',
+                                  'Prix: ${vehicle.price} f / H',
                                   style: AppTextStyles.content,
                                 ),
                               ),
@@ -574,31 +576,44 @@ class _VehicleDetailsState extends State<VehicleDetails> {
       ),
       bottomNavigationBar: BottomAppBar(
         color: Colors.transparent,
-        child: Container(
-          decoration: BoxDecoration(
-            color: AppColors.primary,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          width: responsive.wp(0.7),
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          margin: EdgeInsets.zero,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Reservez Maintenant',
-                style: AppTextStyles.title.copyWith(
-                  fontSize: responsive.sp(16),
-                  color: AppColors.whitePrimary,
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              screenViewAnimation(
+                builder: (context) => RentalForm(
+                  vehicleId: vehicle.name,
                 ),
               ),
-              const SizedBox(width: 10),
-              const Icon(
-                Icons.event_available,
-                size: 35,
-                color: AppColors.whitePrimary,
-              )
-            ],
+            );
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              color: AppColors.primary,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            width: responsive.wp(0.7),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            margin: EdgeInsets.zero,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Faire une Reservation',
+                  style: AppTextStyles.title.copyWith(
+                    fontSize: responsive.sp(16),
+                    color: AppColors.whitePrimary,
+                  ),
+                ),
+                const SizedBox(width: 10),
+                const Icon(
+                  Icons.event_available,
+                  size: 35,
+                  color: AppColors.whitePrimary,
+                )
+              ],
+            ),
           ),
         ),
       ),
