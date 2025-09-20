@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:location_vehicule/presentation/animations/page_view_animation.dart';
-import 'package:location_vehicule/presentation/screens/client/rental_form.dart';
+import 'package:location_vehicule/presentation/screens/formulaire/rental_form.dart';
 import 'package:location_vehicule/presentation/widgets/app_colors.dart';
 import 'package:location_vehicule/presentation/widgets/app_responsive.dart';
 import 'package:location_vehicule/data/models/vehicle_model.dart';
